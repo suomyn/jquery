@@ -1,5 +1,6 @@
 var
 	// A central reference to the root jQuery(document)
+	//// why not use jQuery directly?
 	rootjQuery,
 
 	// The deferred used on DOM ready
@@ -58,6 +59,7 @@ var
 	rdashAlpha = /-([\da-z])/gi,
 
 	// Used by jQuery.camelCase as callback to replace()
+	//// all not used?
 	fcamelCase = function( all, letter ) {
 		return ( letter + "" ).toUpperCase();
 	},
@@ -111,6 +113,7 @@ jQuery.fn = jQuery.prototype = {
 				// HANDLE: $(html) -> $(array)
 				if ( match[1] ) {
 					context = context instanceof jQuery ? context[0] : context;
+					//// ownerDocument
 					doc = ( context && context.nodeType ? context.ownerDocument || context : document );
 
 					// scripts is true for back-compat
@@ -200,6 +203,7 @@ jQuery.fn = jQuery.prototype = {
 
 	// Take an array of elements and push it onto the stack
 	// (returning the new matched element set)
+	//// ...
 	pushStack: function( elems, name, selector ) {
 
 		// Build a new jQuery matched element set
@@ -235,6 +239,7 @@ jQuery.fn = jQuery.prototype = {
 	},
 
 	eq: function( i ) {
+		//// why not use i++?
 		i = +i;
 		return i === -1 ?
 			this.slice( i ) :
@@ -267,11 +272,12 @@ jQuery.fn = jQuery.prototype = {
 	// For internal use only.
 	// Behaves like an Array's method, not like a jQuery method.
 	push: core_push,
-	sort: [].sort,
+	sort: [].sort, //// ...
 	splice: [].splice
 };
 
 // Give the init function the jQuery prototype for later instantiation
+////BM
 jQuery.fn.init.prototype = jQuery.fn;
 
 jQuery.extend = jQuery.fn.extend = function() {
